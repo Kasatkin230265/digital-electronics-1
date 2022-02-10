@@ -1,1 +1,1 @@
-# DE1_PC1
+# digital-electronics-1
