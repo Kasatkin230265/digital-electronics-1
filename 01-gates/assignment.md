@@ -11,9 +11,9 @@
 ```vhdl
 architecture dataflow of demorgan is
 begin
-    f_o      <= (not b_i and a_i) or (not b_i and not c_i);
-    f_nand_o <= -- WRITE YOUR CODE HERE
-    f_nor_o  <= -- WRITE YOUR CODE HERE
+    fnand_o <= (not b_i nand a_i) nand (not b_i nand not c_i);
+    fnor_o  <= (b_i nor not a_i) or (b_i nor  c_i);
+    fcba_o  <= (not b_i and a_i) or (not b_i and not c_i);
 end architecture dataflow;
 ```
 
@@ -21,21 +21,22 @@ end architecture dataflow;
 
 | **c** | **b** |**a** | **f(c,b,a)** | **f_NAND(c,b,a)** | **f_NOR(c,b,a)** |
 | :-: | :-: | :-: | :-: | :-: | :-: |
-| 0 | 0 | 0 | 1 |  |  |
-| 0 | 0 | 1 | 1 |  |  |
-| 0 | 1 | 0 | 0 |  |  |
-| 0 | 1 | 1 | 0 |  |  |
-| 1 | 0 | 0 | 0 |  |  |
-| 1 | 0 | 1 | 1 |  |  |
-| 1 | 1 | 0 | 0 |  |  |
-| 1 | 1 | 1 | 0 |  |  |
+| 0 | 0 | 0 | 1 | 1 | 1 |
+| 0 | 0 | 1 | 1 | 1 | 1 |
+| 0 | 1 | 0 | 0 | 0 | 0 |
+| 0 | 1 | 1 | 0 | 0 | 0 |
+| 1 | 0 | 0 | 0 | 0 | 0 |
+| 1 | 0 | 1 | 1 | 1 | 1 |
+| 1 | 1 | 0 | 0 | 0 | 0 |
+| 1 | 1 | 1 | 0 | 0 | 0 |
 
 ### Distributive laws
 
 1. Screenshot with simulated time waveforms. Always display all inputs and outputs (display the inputs at the top of the image, the outputs below them) at the appropriate time scale!
 
-   ![your figure]()
+   ![image](https://user-images.githubusercontent.com/99397789/154335697-11985c30-c77c-4db5-8b6f-35ed56a91ea3.png)
+
 
 2. Link to your public EDA Playground example:
 
-   [https://www.edaplayground.com/...](https://www.edaplayground.com/...)
+   [https://www.edaplayground.com/x/SKcM]
