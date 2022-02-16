@@ -1,4 +1,4 @@
-# Lab 1: YOUR_FIRSTNAME LASTNAME
+# Lab 1: Alexey Kasatkin ID: 230265
 
 ### De Morgan's laws
 
