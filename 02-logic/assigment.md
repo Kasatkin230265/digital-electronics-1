@@ -29,15 +29,15 @@
         report "Stimulus process started" severity note;
 
         -- First test case
-        s_b <= "BCD_OF_YOUR_SECOND_LAST_ID_DIGIT"; -- Such as "0101" if ID = xxxx56
-        s_a <= "BCD_OF_YOUR_LAST_ID_DIGIT";        -- Such as "0110" if ID = xxxx56
-        wait for 100 ns;
-        -- Expected output
-        assert ((s_B_greater_A = 'WRITE_CORRECT_VALUE_HERE') and
-                (s_B_equals_A  = 'WRITE_CORRECT_VALUE_HERE') and
-                (s_B_less_A    = 'WRITE_CORRECT_VALUE_HERE'))
-        -- If false, then report an error
-        report "Input combination COMPLETE_THIS_TEXT FAILED" severity error;
+        
+        --INPUT PARAMETRS BY MY ID: 230265
+                s_b <= "0110"; --6
+                s_a <= "0101"; --5
+                wait for 100 ns;
+        assert ((s_B_greater_A = '1') and
+                (s_B_equals_A  = '0') and
+                (s_B_less_A    = '0'))
+        report "Input combination 00, 00 FAILED" severity error;
 
         -- Report a note at the end of stimulus process
         report "Stimulus process finished" severity note;
@@ -47,8 +47,8 @@
 
 2. Text console screenshot during your simulation, including reports.
 
-   ![your figure]()
+   !![image](https://user-images.githubusercontent.com/99397789/154474462-35658eaf-f6bd-4b1f-a289-dd6e8b8c429b.png)
 
 3. Link to your public EDA Playground example:
 
-   [https://www.edaplayground.com/...](https://www.edaplayground.com/...)
+   [https://www.edaplayground.com/x/cVBS]
