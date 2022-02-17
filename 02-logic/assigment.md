@@ -47,7 +47,7 @@
 
 2. Text console screenshot during your simulation, including reports.
 
-   !![image](https://user-images.githubusercontent.com/99397789/154474462-35658eaf-f6bd-4b1f-a289-dd6e8b8c429b.png)
+   ![image](https://user-images.githubusercontent.com/99397789/154474462-35658eaf-f6bd-4b1f-a289-dd6e8b8c429b.png)
 
 3. Link to your public EDA Playground example:
 
