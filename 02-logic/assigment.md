@@ -1,4 +1,4 @@
-# Lab 2: YOUR_FIRSTNAME LASTNAME
+# Lab 2: Alexey Kasatkin ID:230265
 
 ### 2-bit comparator
 
