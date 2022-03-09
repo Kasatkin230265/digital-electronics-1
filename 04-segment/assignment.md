@@ -19,7 +19,7 @@
         report "Input combination 0001 FAILED" severity error;
         
         s_hex <= "0010"; wait for 50 ns;
-        assert (s_seg = "1101101")
+        assert (s_seg = "0010010")
         report "Input combination 0010 FAILED" severity error;
         
 	s_hex <= "0011"; wait for 50 ns;
