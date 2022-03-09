@@ -109,4 +109,4 @@
             when others =>
                	LED(7) <= '1'
         end case;
-  ```
+   ```
