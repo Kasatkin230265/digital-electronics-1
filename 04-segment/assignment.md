@@ -22,11 +22,11 @@
         assert (s_seg = "1101101")
         report "Input combination 0010 FAILED" severity error;
         
-		s_hex <= "0011"; wait for 50 ns;
+	s_hex <= "0011"; wait for 50 ns;
         assert (s_seg = "0000110")
         report "Input combination 0011 FAILED" severity error;
         
-		s_hex <= "0100"; wait for 50 ns;
+	s_hex <= "0100"; wait for 50 ns;
         assert (s_seg = "1001100")
         report "Input combination 0100 FAILED" severity error;
         
@@ -90,11 +90,11 @@
 
    ```vhdl
    --------------------------------------------------------------------
-	LED(4) <= `0` <= '1' when (s_hex = 0) else '0';
+	LED(4) <= `0` when (s_hex = 0) else '1';
 
-	LED(5) <= 1' when (s_hex > 1001) else '0';
+	LED(5) <= '0' when (s_hex > 1001) else '1';
     
-	LED(6) <= '1' when (s_hex(0) = 0) else '0';
+	LED(6) <= '0' when (s_hex(0) = 0) else '1';
 
 	--LED(7)
         case s_hex is
