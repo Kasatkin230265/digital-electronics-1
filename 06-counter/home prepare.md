@@ -15,3 +15,5 @@ Write values in decimal, binary, and hexadecimal forms.
    | 250&nbsp;ms | 25 000 000 | `x"17D_7840"` | `b"1_0111_1101_0111_1000_0100_0000"` |	
    | 500&nbsp;ms | 50 000 000 | `x"2FA_F080"` | `b"10_1111_1010_1111_0000_1000_0000"` |
    | 1&nbsp;sec | 100 000 000 | `x"5F5_E100"` | `b"0101_1111_0101_1110_0001_0000_0000"` |
+
+  ![image](https://user-images.githubusercontent.com/99397789/158676045-3d9b54c7-6e05-4b3c-8da7-c182bbff3ef7.png)
