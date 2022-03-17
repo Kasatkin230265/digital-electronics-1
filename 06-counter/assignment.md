@@ -19,7 +19,7 @@
 
             elsif (en_i = '1') then -- Test if counter is enabled
               
-				if (cnt_up_i = '1') then -- TEST COUNTER DIRECTION HERE
+			if (cnt_up_i = '1') then -- TEST COUNTER DIRECTION HERE
 			  		s_cnt_local <= s_cnt_local + 1;
       			elsif (cnt_up_i = '0') then 
       				s_cnt_local <= s_cnt_local - 1;
