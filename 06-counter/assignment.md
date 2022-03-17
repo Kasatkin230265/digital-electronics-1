@@ -1,4 +1,4 @@
-# Lab 6: YOUR_FIRSTNAME LASTNAME
+# Lab 6: Alexey Kasatkin ID:230265
 
 ### Bidirectional counter
 
