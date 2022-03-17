@@ -5,7 +5,7 @@
 1. Listing of VHDL code of the completed process `p_cnt_up_down`. Always use syntax highlighting, meaningful comments, and follow VHDL guidelines:
 
 ```vhdl
-    --------------------------------------------------------
+  --------------------------------------------------------
     -- p_cnt_up_down:
     -- Clocked process with synchronous reset which implements
     -- n-bit up/down counter.
@@ -18,10 +18,12 @@
                 s_cnt_local <= (others => '0'); -- Clear all bits
 
             elsif (en_i = '1') then -- Test if counter is enabled
-
-                -- TEST COUNTER DIRECTION HERE
-
-                    s_cnt_local <= s_cnt_local + 1;
+              
+				if (cnt_up_i = '1') then -- TEST COUNTER DIRECTION HERE
+			  		s_cnt_local <= s_cnt_local + 1;
+      			elsif (cnt_up_i = '0') then 
+      				s_cnt_local <= s_cnt_local - 1;
+    			end if;
             end if;
         end if;
     end process p_cnt_up_down;
