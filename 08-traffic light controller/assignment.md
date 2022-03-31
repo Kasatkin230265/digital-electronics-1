@@ -1,4 +1,4 @@
-# Lab 8: YOUR_FIRSTNAME LASTNAME
+# Lab 8: Alexey Kasatkin ID:230265
 
 ### Traffic light controller
 
@@ -9,12 +9,7 @@
 2. Listing of VHDL code of the completed process `p_traffic_fsm`. Always use syntax highlighting, meaningful comments, and follow VHDL guidelines:
 
 ```vhdl
-    --------------------------------------------------------
-    -- p_traffic_fsm:
-    -- The sequential process with synchronous reset and 
-    -- clock_enable entirely controls the s_state signal by 
-    -- CASE statement.
-    p_traffic_fsm : process(clk)
+p_traffic_fsm : process(clk)
     begin
         if rising_edge(clk) then
             if (reset = '1') then   -- Synchronous reset
@@ -79,22 +74,17 @@
                             -- Reset local counter value
                             s_cnt <= c_ZERO;
                         end if;
-                        
-                     when SOUTH_WAIT =>
-                        if (s_cnt < c_DELAY_2SEC) then
-                            s_cnt <= s_cnt + 1;
-                        else
-                            -- Move to the next state
-                            s_state <= STOP2;
-                            -- Reset local counter value
-                            s_cnt <= c_ZERO;
-                        end if;
+                             
                     -- It is a good programming practice to use the 
                     -- OTHERS clause, even if all CASE choices have 
                     -- been made.
                     when others =>
-                        s_state <= STOP1;
-                        s_cnt   <= c_ZERO;
+                        if (s_cnt < c_DELAY_2SEC) then
+                            s_cnt <= s_cnt + 1;
+                        else
+                            s_state <= STOP1;
+                            s_cnt   <= c_ZERO;
+                        end if;
                 end case;
             end if; -- Synchronous reset
         end if; -- Rising edge
