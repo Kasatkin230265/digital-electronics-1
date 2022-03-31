@@ -96,6 +96,7 @@ p_traffic_fsm : process(clk)
    ![image](https://user-images.githubusercontent.com/99397789/161030189-88d0b7f9-635e-47d7-9d04-96082d4db182.png)
    
    2-green light
+   
    4-red light
+   
    6-yellow light
-
