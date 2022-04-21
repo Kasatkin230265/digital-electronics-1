@@ -80,17 +80,18 @@ architecture Behavioral of tlc is
 
     -- Internal clock enable
     signal s_en : std_logic;
-    
+    signal length_i: integer range 0 to 17:= 0;
+    signal temp: std_logic_vector(17 downto 0); 
 
     -- Local delay counter
     signal s_cnt : unsigned(4 downto 0);
     signal s_next : unsigned(5 downto 0);
 
     -- Specific values for local counter
-    constant c_DELAY_dash  : unsigned(4 downto 0) := b"0_0100";
-    constant c_DELAY_dot   : unsigned(4 downto 0) := b"0_0010";
-    constant c_DELAY_space : unsigned(4 downto 0) := b"0_0010";
-    constant c_DELAY_zero  : unsigned(4 downto 0) := b"0_0000";
+    
+       constant DOT	: std_logic_vector(1 downto 0):="10";		
+	constant DASH	: std_logic_vector(3 downto 0):="1110";		
+	constant ZERO	: std_logic_vector (17 DOWNTO 0):=(others => '0');
 
     -- Output values
     constant c_Light       : std_logic_vector(2 downto 0) := b"111";
