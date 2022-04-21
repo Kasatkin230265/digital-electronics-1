@@ -89,9 +89,9 @@ architecture Behavioral of tlc is
 
     -- Specific values for local counter
     
-       constant DOT	: std_logic_vector(1 downto 0):="10";		
+        constant DOT	: std_logic_vector(1 downto 0):="10";		
 	constant DASH	: std_logic_vector(3 downto 0):="1110";		
-	constant ZERO	: std_logic_vector (17 DOWNTO 0):=(others => '0');
+	constant ZERO	: std_logic_vector (20 DOWNTO 0):=(others => '0');
 
     -- Output values
     constant c_Light       : std_logic_vector(2 downto 0) := b"111";
@@ -137,84 +137,114 @@ begin
                 case s_stat is
                     -- If the current state is STOP1, then wait 1 sec
                     -- and move to the next GO_WAIT state.
-                    when "001010"  => length_i<=9 ; 
-					temp <= DOT & DASH & ZERO(17-9 downto 0); -- A
+                   	 	when "001010"  => length_i<=9 ; 
+					temp <= DOT & DASH & ZERO(20-9 downto 0); -- A
 					
-				when X"32"  => length_i<=13;
-					temp <= DASH & DOT & DOT & DOT & ZERO(17-13 downto 0); -- B
+				when "001011"  => length_i<=13;
+					temp <= DASH & DOT & DOT & DOT & ZERO(20-13 downto 0); -- B
 					
-				when X"21"  => length_i<=15; 
-					temp <= DASH & DOT & DASH & DOT & ZERO(17-15 downto 0); -- C
+				when "001100"  => length_i<=15; 
+					temp <= DASH & DOT & DASH & DOT & ZERO(20-15 downto 0); -- C
 					
-				when X"23"  => length_i<=11; 
-					temp <= DASH & DOT & DOT & ZERO(17-11 downto 0); -- D
+				when "001101"  => length_i<=11; 
+					temp <= DASH & DOT & DOT & ZERO(20-11 downto 0); -- D
 					
-				when X"24"  => length_i<=5 ; 
-					temp <= DOT & ZERO(17-5 downto 0); -- E
+				when "001110"  => length_i<=5 ; 
+					temp <= DOT & ZERO(20-5 downto 0); -- E
 					
-				when X"2B"  => length_i<=13; 
-					temp <= DOT & DOT & DASH & DOT & ZERO(17-13 downto 0); -- F
+				when "001111"  => length_i<=13; 
+					temp <= DOT & DOT & DASH & DOT & ZERO(20-13 downto 0); -- F
 					
-				when X"34"  => length_i<=13; 
-					temp <= DASH & DASH & DOT & ZERO(17-13 downto 0); -- G
+				when "010000"  => length_i<=13; 
+					temp <= DASH & DASH & DOT & ZERO(20-13 downto 0); -- G
 					
-				when X"33"  => length_i<=11; 
-					temp <= DOT & DOT & DOT & DOT & ZERO(17-11 downto 0); -- H
+				when "010001"  => length_i<=11; 
+					temp <= DOT & DOT & DOT & DOT & ZERO(20-11 downto 0); -- H
 					
-				when X"43"  => length_i<=7 ; 
-					temp <= DOT & DOT & ZERO(17-7 downto 0); -- I
+				when "010010"  => length_i<=7 ; 
+					temp <= DOT & DOT & ZERO(20-7 downto 0); -- I
 					
-				when X"3B"  => length_i<=17; 
-					temp <= DOT & DASH & DASH & DASH & ZERO(17-17 downto 0); -- J
+				when "010011"  => length_i<=17; 
+					temp <= DOT & DASH & DASH & DASH & ZERO(20-17 downto 0); -- J
 					
-				when X"42"  => length_i<=13; 
-					temp <= DASH & DOT & DASH & ZERO(17-13 downto 0); -- K
+				when "010100"  => length_i<=13; 
+					temp <= DASH & DOT & DASH & ZERO(20-13 downto 0); -- K
 					
-				when X"4B"  => length_i<=13; 
-					temp <= DOT & DASH & DOT & DOT & ZERO(17-13 downto 0); -- L						
+				when "010101"  => length_i<=13; 
+					temp <= DOT & DASH & DOT & DOT & ZERO(20-13 downto 0); -- L						
 					
-				when X"3A"  => length_i<=11; 
-					temp <= DASH & DASH & ZERO(17-11 downto 0); -- M
+				when "010110"  => length_i<=11; 
+					temp <= DASH & DASH & ZERO(20-11 downto 0); -- M
 					
-				when X"31"  => length_i<=9 ; 
-					temp <= DASH & DOT & ZERO(17-9 downto 0); -- N
+				when "010111"  => length_i<=9 ; 
+					temp <= DASH & DOT & ZERO(20-9 downto 0); -- N
 					
-				when X"44"  => length_i<=15; 
-					temp <= DASH & DASH & DASH & ZERO(17-15 downto 0); -- O
+				when "011000"  => length_i<=15; 
+					temp <= DASH & DASH & DASH & ZERO(20-15 downto 0); -- O
 					
-				when X"4D"  => length_i<=15; 
-					temp <= DOT & DASH & DASH & DOT & ZERO(17-15 downto 0); -- P
+				when "011001"  => length_i<=15; 
+					temp <= DOT & DASH & DASH & DOT & ZERO(20-15 downto 0); -- P
 					
-				when X"15"  => length_i<=17; 
-					temp <= DASH & DASH & DOT & DASH & ZERO(17-17 downto 0); -- Q
+				when "011010"  => length_i<=17; 
+					temp <= DASH & DASH & DOT & DASH & ZERO(20-17 downto 0); -- Q
 					
-				when X"2D"  => length_i<=11; 
-					temp <= DOT & DASH & DOT & ZERO(17-11 downto 0); -- R
+				when "011011"  => length_i<=11; 
+					temp <= DOT & DASH & DOT & ZERO(20-11 downto 0); -- R
 					
-				when X"1B"  => length_i<=9 ; 
-					temp <= DOT & DOT & DOT & ZERO(17-9 downto 0); -- S
+				when "011100"  => length_i<=9 ; 
+					temp <= DOT & DOT & DOT & ZERO(20-9 downto 0); -- S
 					
-				when X"2C"  => length_i<=7 ; 
-					temp <= DASH & ZERO(17-7 downto 0); -- T
+				when "011101"  => length_i<=7 ; 
+					temp <= DASH & ZERO(20-7 downto 0); -- T
 					
-				when X"3C"  => length_i<=11; 
-					temp <= DOT & DOT & DASH & ZERO(17-11 downto 0); -- U
+				when "011110"  => length_i<=11; 
+					temp <= DOT & DOT & DASH & ZERO(20-11 downto 0); -- U
 					
-				when X"2A"  => length_i<=13; 
-					temp <= DOT & DOT & DOT & DASH & ZERO(17-13 downto 0); -- V
+				when "011111"  => length_i<=13; 
+					temp <= DOT & DOT & DOT & DASH & ZERO(20-13 downto 0); -- V
 					
-				when X"1D"  => length_i<=13; 
-					temp <= DOT & DASH & DASH & ZERO(17-13 downto 0); -- W
+				when "100000"  => length_i<=13; 
+					temp <= DOT & DASH & DASH & ZERO(20-13 downto 0); -- W
 					
-				when X"22"  => length_i<=15; 
-					temp <= DASH & DOT & DOT & DASH & ZERO(17-15 downto 0); -- X
+				when "100001"  => length_i<=15; 
+					temp <= DASH & DOT & DOT & DASH & ZERO(20-15 downto 0); -- X
 					
-				when X"35"  => length_i<=17; 
-					temp <= DASH & DOT & DASH & DASH & ZERO(17-17 downto 0); -- Y
+				when "100010"  => length_i<=17; 
+					temp <= DASH & DOT & DASH & DASH & ZERO(20-17 downto 0); -- Y
 					
-				when X"1A"  => length_i<=15; 
-					temp <= DASH & DASH & DOT & DOT & ZERO(17-15 downto 0); -- Z	
-					
+				when "100011"  => length_i<=15; 
+					temp <= DASH & DASH & DOT & DOT & ZERO(20-15 downto 0); -- Z
+
+				when "000000"  => length_i<=20; 
+					temp <= DASH & DASH & DASH & DASH & DASH & ZERO(20-20 downto 0); -- 0
+
+				when "000001"  => length_i<=18; 
+					temp <= DOT & DASH & DASH & DASH & DASH & ZERO(20-18 downto 0); -- 1
+
+				when "000010"  => length_i<=16; 
+					temp <= DOT & DOT & DASH & DASH & DASH & ZERO(20-16 downto 0); -- 2
+
+				when "000011"  => length_i<=14; 
+					temp <= DOT & DOT & DOT & DASH & DASH & ZERO(20-14 downto 0); -- 3
+
+				when "000100"  => length_i<=12; 
+					temp <= DOT & DOT & DOT & DOT & DASH & ZERO(20-12 downto 0); -- 4
+
+				when "000101"  => length_i<=10; 
+					temp <= DOT & DOT & DOT & DOT & DOT & ZERO(20-10 downto 0); -- 5
+
+				when "000110"  => length_i<=12; 
+					temp <= DASH & DOT & DOT & DOT & DOT & ZERO(20-12 downto 0); -- 6
+
+				when "000111"  => length_i<=14; 
+					temp <= DASH & DASH & DOT & DOT & DOT & ZERO(20-14 downto 0); -- 7
+
+				when "001000"  => length_i<=16; 
+					temp <= DASH & DASH & DASH & DOT & DOT & ZERO(20-16 downto 0); -- 8
+
+				when "001001"  => length_i<=18; 
+					temp <= DASH & DASH & DASH & DASH & DOT & ZERO(20-18 downto 0); -- 9
+
 				when others => length_i<=0; 
 					temp <= ZERO(17 downto 0);
                 end case;
