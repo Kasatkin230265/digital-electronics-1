@@ -1,19 +1,14 @@
-------------------------------------------------------------
+---------------------------
 --
 -- Traffic light controller using FSM.
 -- Nexys A7-50T, Vivado v2020.1.1, EDA Playground
 --
--- Copyright (c) 2020-Present Tomas Fryza
+-- Copyright (c) 2022 PROJECT TEAM 
 -- Dept. of Radio Electronics, Brno Univ. of Technology, Czechia
 -- This work is licensed under the terms of the MIT license.
 --
 -- This code is inspired by:
--- [1] LBEbooks, Lesson 92 - Example 62: Traffic Light Controller
---     https://www.youtube.com/watch?v=6_Rotnw1hFM
--- [2] David Williams, Implementing a Finite State Machine in VHDL
---     https://www.allaboutcircuits.com/technical-articles/implementing-a-finite-state-machine-in-vhdl/
--- [3] VHDLwhiz, One-process vs two-process vs three-process state machine
---     https://vhdlwhiz.com/n-process-state-machine/
+
 --
 ------------------------------------------------------------
 
@@ -38,60 +33,21 @@ end entity tlc;
 ------------------------------------------------------------
 architecture Behavioral of tlc is
 
-    -- Define the states
-    type t_stat is ( zero,
-                     one,
-                     two,
-                     three,
-                     four,
-                     five,
-                     six,
-                     seven,
-                     eight,
-                     nine,
-                     A,
-                     B,
-                     C,
-                     D,
-                     E,
-                     F,
-                     G,
-                     H,
-                     I,
-                     K,
-                     L,
-                     M,
-                     N,
-                     O,
-                     P,
-                     Q,
-                     R,
-                     S,
-                     T,
-                     U,
-                     GALOCHKA,
-                     W,
-                     X,
-                     Y,
-                     SVASTIKA
-                     );
-    -- Define the signal that uses different state
-    signal s_stat : t_stat;
-
     -- Internal clock enable
-    signal s_en : std_logic;
-    signal length_i: integer range 0 to 17:= 0;
-    signal temp: std_logic_vector(17 downto 0); 
+    signal s_en                : std_logic;
+    signal length_i : integer range 0 to 20:= 0;
+    signal counter  : integer range 0 to 20:= 0;
+    signal temp     : std_logic_vector(20 downto 0); 
+    signal char_i : std_logic_vector(6 downto 0);
 
     -- Local delay counter
-    signal s_cnt : unsigned(4 downto 0);
-    signal s_next : unsigned(5 downto 0);
+    signal s_cnt    : unsigned(4 downto 0);
 
     -- Specific values for local counter
     
-        constant DOT	: std_logic_vector(1 downto 0):="10";		
-	constant DASH	: std_logic_vector(3 downto 0):="1110";		
-	constant ZERO	: std_logic_vector (20 DOWNTO 0):=(others => '0');
+    constant DOT	               : std_logic_vector(1 downto 0):="10";		
+	constant DASH                  : std_logic_vector(3 downto 0):="1110";		
+	constant ZERO                  : std_logic_vector(20 DOWNTO 0):=(others => '0');
 
     -- Output values
     constant c_Light       : std_logic_vector(2 downto 0) := b"111";
@@ -104,18 +60,18 @@ begin
     -- the frequency of the clock signal is 100 MHz.
     
     -- USE THIS PART FOR FASTER/SHORTER SIMULATION
---    s_en <= '1';
+    s_en <= '1';
     -- USE THE FOLLOWING PART FOR THE IMPLEMENTATION
-    clk_en0 : entity work.clock_enable
-        generic map(
-            g_MAX => 25000000 -- 250 ms / (1/100 MHz)
-        )
-        port map(
-            clk   => clk,
-            reset => reset,
-            ce_o  => s_en
+--    clk_en0 : entity work.clock_enable
+--        generic map(
+--            g_MAX => 25000000 -- 250 ms / (1/100 MHz)
+--        )
+--        port map(
+--            clk   => clk,
+--            reset => reset,
+--            ce_o  => s_en
            
-        );
+--        );
 
     --------------------------------------------------------
     -- p_traffic_fsm:
@@ -126,18 +82,12 @@ begin
     p_traffic_fsm : process(clk)
     begin
         if rising_edge(clk) then
-            if (reset = '1') then   -- Synchronous reset
-                s_stat <= space;   -- Set initial state
-                s_cnt   <= c_DELAY_zero;  -- Clear delay counter
-                    
-            elsif (s_en = '1') then
-                -- Every 250 ms, CASE checks the value of the s_state 
-                -- variable and changes to the next state according 
-                -- to the delay value.
-                case s_stat is
+            if length_i > counter then
+            
+                case char_i is
                     -- If the current state is STOP1, then wait 1 sec
                     -- and move to the next GO_WAIT state.
-                   	 	when "001010"  => length_i<=9 ; 
+                when "001010"  => length_i<=9 ; 
 					temp <= DOT & DASH & ZERO(20-9 downto 0); -- A
 					
 				when "001011"  => length_i<=13;
@@ -246,7 +196,7 @@ begin
 					temp <= DASH & DASH & DASH & DASH & DOT & ZERO(20-18 downto 0); -- 9
 
 				when others => length_i<=0; 
-					temp <= ZERO(17 downto 0);
+					temp <= ZERO(20 downto 0);
                 end case;
             end if; -- Synchronous reset
         end if; -- Rising edge
@@ -259,48 +209,5 @@ begin
     -- This is an example of a Moore state machine and
     -- therefore the output is set based on the active state.
     --------------------------------------------------------
-    p_output_fsm : process(s_stat)
-    begin
-        case s_stat is
-                     when zero =>
-                     
-                     when one =>
-                     
-                     when two =>
-                     
-                     when three =>
-                     when four =>
-                     when five =>
-                     when six =>
-                     when seven =>
-                     when eight =>
-                     when nine =>
-                     when A =>
-                     when B =>
-                     when C =>
-                     when D =>
-                     when E =>
-                     when F =>
-                     when G =>
-                     when H =>
-                     when I =>
-                     when K =>
-                     when L =>
-                     when M =>
-                     when N =>
-                     when O =>
-                     when P =>
-                     when Q =>
-                     when R =>
-                     when S =>
-                     when T =>
-                     when U =>
-                     when GALOCHKA =>
-                     when W =>
-                     when X =>
-                     when Y =>
-                     when SVASTIKA =>
-        end case;
-    end process p_output_fsm;
-
+    
 end architecture Behavioral;
