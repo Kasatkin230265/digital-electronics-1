@@ -136,120 +136,86 @@ begin
                 case s_stat is
                     -- If the current state is STOP1, then wait 1 sec
                     -- and move to the next GO_WAIT state.
-                    when zero =>
-                        -- Count up to c_DELAY_1SEC
-                        if (s_cnt < c_DELAY_dash) then    
-                            s_cnt <= s_cnt + 1;
-                            s_next <= s_next + 1;
-                        else 
-                            s_cnt<=c_DELAY_zero;
-                        end if;
-                        if (s_cnt+s_next < c_DELAY_space) then    
-                            s_cnt <= s_cnt + 1;
-                            s_next <= s_next + 1;
-                        else 
-                            s_cnt<=c_DELAY_zero;
-                        end if;
-                        if
-                            (s_cnt+s_next < c_DELAY_dash) then    
-                            s_cnt <= s_cnt + 1;
-                            s_next <= s_next + 1;
-                        else 
-                            s_cnt<=c_DELAY_zero;
-                        end if;
-                        if
-                            (s_cnt+s_next < c_DELAY_space) then    
-                            s_cnt <= s_cnt + 1;
-                            s_next <= s_next + 1;
-                        else 
-                            s_cnt<=c_DELAY_zero;
-                        end if;
-                        if
-                            (s_cnt+s_next < c_DELAY_dash) then    
-                            s_cnt <= s_cnt + 1;
-                            s_next <= s_next + 1;
-                        else 
-                            s_cnt<=c_DELAY_zero;
-                        end if;
-                        if 
-                            (s_cnt+s_next < c_DELAY_space) then    
-                            s_cnt <= s_cnt + 1;
-                            s_next <= s_next + 1;
-                        else 
-                            s_cnt<=c_DELAY_zero;
-                        end if;
-                        if
-                            (s_cnt+s_next < c_DELAY_dash) then    
-                            s_cnt <= s_cnt + 1;  
-                            s_next <= s_next + 1;  
-                        else 
-                            s_cnt<=c_DELAY_zero;
-                        end if;
-                        if 
-                            (s_cnt+s_next < c_DELAY_space) then    
-                            s_cnt <= s_cnt + 1;   
-                            s_next <= s_next + 1;
-                        else 
-                            s_cnt<=c_DELAY_zero;
-                        end if; 
-                        if
-                            (s_cnt+s_next < c_DELAY_dash) then    
-                            s_cnt <= s_cnt + 1;
-                            s_next <= c_DELAY_zero;
-                        else 
-                            s_cnt<=c_DELAY_zero;
-                        end if;
-                       
---                    when WEST_GO =>
---                        if (s_cnt < c_DELAY_4SEC) then
---                            s_cnt <= s_cnt + 1;
---                        else
---                            -- Move to the next state
---                            s_state <= WEST_WAIT;
---                            -- Reset local counter value
---                            s_cnt <= c_ZERO;
---                        end if;
-                        
---                     when WEST_WAIT =>
---                        if (s_cnt < c_DELAY_2SEC) then
---                            s_cnt <= s_cnt + 1;
---                        else
---                            -- Move to the next state
---                            s_state <= STOP2;
---                            -- Reset local counter value
---                            s_cnt <= c_ZERO;
---                        end if;
-                        
---                     when STOP2 =>
---                        if (s_cnt < c_DELAY_1SEC) then
---                            s_cnt <= s_cnt + 1;
---                        else
---                            -- Move to the next state
---                            s_state <= SOUTH_GO;
---                            -- Reset local counter value
---                            s_cnt <= c_ZERO;
---                        end if;
-                        
---                     when SOUTH_GO =>
---                        if (s_cnt < c_DELAY_4SEC) then
---                            s_cnt <= s_cnt + 1;
---                        else
---                            -- Move to the next state
---                            s_state <= SOUTH_WAIT;
---                            -- Reset local counter value
---                            s_cnt <= c_ZERO;
-                        
-                             
-                    -- It is a good programming practice to use the 
-                    -- OTHERS clause, even if all CASE choices have 
-                    -- been made.
-                    when others =>
-                        if (s_cnt < c_DELAY_2SEC) then
-                            s_cnt <= s_cnt + 1;
-                        else
-                            s_state <= STOP1;
-                            s_cnt   <= c_ZERO;
-                        end if;
+                    when "001010"  => length_i<=9 ; 
+					temp <= DOT & DASH & ZERO(17-9 downto 0); -- A
+					
+				when X"32"  => length_i<=13;
+					temp <= DASH & DOT & DOT & DOT & ZERO(17-13 downto 0); -- B
+					
+				when X"21"  => length_i<=15; 
+					temp <= DASH & DOT & DASH & DOT & ZERO(17-15 downto 0); -- C
+					
+				when X"23"  => length_i<=11; 
+					temp <= DASH & DOT & DOT & ZERO(17-11 downto 0); -- D
+					
+				when X"24"  => length_i<=5 ; 
+					temp <= DOT & ZERO(17-5 downto 0); -- E
+					
+				when X"2B"  => length_i<=13; 
+					temp <= DOT & DOT & DASH & DOT & ZERO(17-13 downto 0); -- F
+					
+				when X"34"  => length_i<=13; 
+					temp <= DASH & DASH & DOT & ZERO(17-13 downto 0); -- G
+					
+				when X"33"  => length_i<=11; 
+					temp <= DOT & DOT & DOT & DOT & ZERO(17-11 downto 0); -- H
+					
+				when X"43"  => length_i<=7 ; 
+					temp <= DOT & DOT & ZERO(17-7 downto 0); -- I
+					
+				when X"3B"  => length_i<=17; 
+					temp <= DOT & DASH & DASH & DASH & ZERO(17-17 downto 0); -- J
+					
+				when X"42"  => length_i<=13; 
+					temp <= DASH & DOT & DASH & ZERO(17-13 downto 0); -- K
+					
+				when X"4B"  => length_i<=13; 
+					temp <= DOT & DASH & DOT & DOT & ZERO(17-13 downto 0); -- L						
+					
+				when X"3A"  => length_i<=11; 
+					temp <= DASH & DASH & ZERO(17-11 downto 0); -- M
+					
+				when X"31"  => length_i<=9 ; 
+					temp <= DASH & DOT & ZERO(17-9 downto 0); -- N
+					
+				when X"44"  => length_i<=15; 
+					temp <= DASH & DASH & DASH & ZERO(17-15 downto 0); -- O
+					
+				when X"4D"  => length_i<=15; 
+					temp <= DOT & DASH & DASH & DOT & ZERO(17-15 downto 0); -- P
+					
+				when X"15"  => length_i<=17; 
+					temp <= DASH & DASH & DOT & DASH & ZERO(17-17 downto 0); -- Q
+					
+				when X"2D"  => length_i<=11; 
+					temp <= DOT & DASH & DOT & ZERO(17-11 downto 0); -- R
+					
+				when X"1B"  => length_i<=9 ; 
+					temp <= DOT & DOT & DOT & ZERO(17-9 downto 0); -- S
+					
+				when X"2C"  => length_i<=7 ; 
+					temp <= DASH & ZERO(17-7 downto 0); -- T
+					
+				when X"3C"  => length_i<=11; 
+					temp <= DOT & DOT & DASH & ZERO(17-11 downto 0); -- U
+					
+				when X"2A"  => length_i<=13; 
+					temp <= DOT & DOT & DOT & DASH & ZERO(17-13 downto 0); -- V
+					
+				when X"1D"  => length_i<=13; 
+					temp <= DOT & DASH & DASH & ZERO(17-13 downto 0); -- W
+					
+				when X"22"  => length_i<=15; 
+					temp <= DASH & DOT & DOT & DASH & ZERO(17-15 downto 0); -- X
+					
+				when X"35"  => length_i<=17; 
+					temp <= DASH & DOT & DASH & DASH & ZERO(17-17 downto 0); -- Y
+					
+				when X"1A"  => length_i<=15; 
+					temp <= DASH & DASH & DOT & DOT & ZERO(17-15 downto 0); -- Z	
+					
+				when others => length_i<=0; 
+					temp <= ZERO(17 downto 0);
                 end case;
             end if; -- Synchronous reset
         end if; -- Rising edge
