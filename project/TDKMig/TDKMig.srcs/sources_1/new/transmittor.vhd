@@ -87,83 +87,83 @@ begin
                 case char_i is
                     -- If the current state is STOP1, then wait 1 sec
                     -- and move to the next GO_WAIT state.
-                when "001010"  => length_i<=9 ; 
-					temp <= DOT & DASH & ZERO(20-9 downto 0); -- A
+                when "001010"  => length_i<=6 ; --DOT=2, DASH=4 
+					temp <= DOT & DASH & ZERO(20-6 downto 0); -- A +
 					
-				when "001011"  => length_i<=13;
-					temp <= DASH & DOT & DOT & DOT & ZERO(20-13 downto 0); -- B
+				when "001011"  => length_i<=10;
+					temp <= DASH & DOT & DOT & DOT & ZERO(20-10 downto 0); -- B +
 					
-				when "001100"  => length_i<=15; 
-					temp <= DASH & DOT & DASH & DOT & ZERO(20-15 downto 0); -- C
+				when "001100"  => length_i<=12; 
+					temp <= DASH & DOT & DASH & DOT & ZERO(20-12 downto 0); -- C +
 					
-				when "001101"  => length_i<=11; 
-					temp <= DASH & DOT & DOT & ZERO(20-11 downto 0); -- D
+				when "001101"  => length_i<=8; 
+					temp <= DASH & DOT & DOT & ZERO(20-8 downto 0); -- D
 					
-				when "001110"  => length_i<=5 ; 
-					temp <= DOT & ZERO(20-5 downto 0); -- E
+				when "001110"  => length_i<=2 ; 
+					temp <= DOT & ZERO(20-2 downto 0); -- E +
 					
 				when "001111"  => length_i<=13; 
-					temp <= DOT & DOT & DASH & DOT & ZERO(20-13 downto 0); -- F
+					temp <= DOT & DOT & DASH & DOT & ZERO(20-10 downto 0); -- F
 					
 				when "010000"  => length_i<=13; 
-					temp <= DASH & DASH & DOT & ZERO(20-13 downto 0); -- G
+					temp <= DASH & DASH & DOT & ZERO(20-10 downto 0); -- G
 					
-				when "010001"  => length_i<=11; 
-					temp <= DOT & DOT & DOT & DOT & ZERO(20-11 downto 0); -- H
+				when "010001"  => length_i<=8; 
+					temp <= DOT & DOT & DOT & DOT & ZERO(20-8 downto 0); -- H +
 					
-				when "010010"  => length_i<=7 ; 
-					temp <= DOT & DOT & ZERO(20-7 downto 0); -- I
+				when "010010"  => length_i<=4 ; 
+					temp <= DOT & DOT & ZERO(20-4 downto 0); -- I +
 					
-				when "010011"  => length_i<=17; 
-					temp <= DOT & DASH & DASH & DASH & ZERO(20-17 downto 0); -- J
+				when "010011"  => length_i<=14; 
+					temp <= DOT & DASH & DASH & DASH & ZERO(20-14 downto 0); -- J +
 					
-				when "010100"  => length_i<=13; 
-					temp <= DASH & DOT & DASH & ZERO(20-13 downto 0); -- K
+				when "010100"  => length_i<=10; 
+					temp <= DASH & DOT & DASH & ZERO(20-10 downto 0); -- K +
 					
-				when "010101"  => length_i<=13; 
-					temp <= DOT & DASH & DOT & DOT & ZERO(20-13 downto 0); -- L						
+				when "010101"  => length_i<=10; 
+					temp <= DOT & DASH & DOT & DOT & ZERO(20-10 downto 0); -- L +	 					
 					
-				when "010110"  => length_i<=11; 
-					temp <= DASH & DASH & ZERO(20-11 downto 0); -- M
+				when "010110"  => length_i<=8; 
+					temp <= DASH & DASH & ZERO(20-8 downto 0); -- M +
 					
-				when "010111"  => length_i<=9 ; 
-					temp <= DASH & DOT & ZERO(20-9 downto 0); -- N
+				when "010111"  => length_i<=6 ;  
+					temp <= DASH & DOT & ZERO(20-6 downto 0); -- N +
 					
-				when "011000"  => length_i<=15; 
-					temp <= DASH & DASH & DASH & ZERO(20-15 downto 0); -- O
+				when "011000"  => length_i<=12; 
+					temp <= DASH & DASH & DASH & ZERO(20-12 downto 0); -- O +
 					
-				when "011001"  => length_i<=15; 
-					temp <= DOT & DASH & DASH & DOT & ZERO(20-15 downto 0); -- P
+				when "011001"  => length_i<=12; 
+					temp <= DOT & DASH & DASH & DOT & ZERO(20-12 downto 0); -- P +
 					
-				when "011010"  => length_i<=17; 
-					temp <= DASH & DASH & DOT & DASH & ZERO(20-17 downto 0); -- Q
+				when "011010"  => length_i<=14; 
+					temp <= DASH & DASH & DOT & DASH & ZERO(20-14 downto 0); -- Q +
 					
-				when "011011"  => length_i<=11; 
-					temp <= DOT & DASH & DOT & ZERO(20-11 downto 0); -- R
+				when "011011"  => length_i<=8; 
+					temp <= DOT & DASH & DOT & ZERO(20-8 downto 0); -- R +
 					
-				when "011100"  => length_i<=9 ; 
-					temp <= DOT & DOT & DOT & ZERO(20-9 downto 0); -- S
+				when "011100"  => length_i<=6 ; 
+					temp <= DOT & DOT & DOT & ZERO(20-6 downto 0); -- S +
 					
-				when "011101"  => length_i<=7 ; 
-					temp <= DASH & ZERO(20-7 downto 0); -- T
+				when "011101"  => length_i<=4 ; 
+					temp <= DASH & ZERO(20-4 downto 0); -- T +
 					
-				when "011110"  => length_i<=11; 
-					temp <= DOT & DOT & DASH & ZERO(20-11 downto 0); -- U
+				when "011110"  => length_i<=8; 
+					temp <= DOT & DOT & DASH & ZERO(20-8 downto 0); -- U +
 					
-				when "011111"  => length_i<=13; 
-					temp <= DOT & DOT & DOT & DASH & ZERO(20-13 downto 0); -- V
+				when "011111"  => length_i<=10; 
+					temp <= DOT & DOT & DOT & DASH & ZERO(20-10 downto 0); -- V +
 					
-				when "100000"  => length_i<=13; 
-					temp <= DOT & DASH & DASH & ZERO(20-13 downto 0); -- W
+				when "100000"  => length_i<=10; 
+					temp <= DOT & DASH & DASH & ZERO(20-10 downto 0); -- W +
 					
-				when "100001"  => length_i<=15; 
-					temp <= DASH & DOT & DOT & DASH & ZERO(20-15 downto 0); -- X
+				when "100001"  => length_i<=12; 
+					temp <= DASH & DOT & DOT & DASH & ZERO(20-12 downto 0); -- X +
 					
-				when "100010"  => length_i<=17; 
-					temp <= DASH & DOT & DASH & DASH & ZERO(20-17 downto 0); -- Y
+				when "100010"  => length_i<=14; 
+					temp <= DASH & DOT & DASH & DASH & ZERO(20-14 downto 0); -- Y +
 					
-				when "100011"  => length_i<=15; 
-					temp <= DASH & DASH & DOT & DOT & ZERO(20-15 downto 0); -- Z
+				when "100011"  => length_i<=12; 
+					temp <= DASH & DASH & DOT & DOT & ZERO(20-12 downto 0); -- Z +
 
 				when "000000"  => length_i<=20; 
 					temp <= DASH & DASH & DASH & DASH & DASH & ZERO(20-20 downto 0); -- 0
