@@ -64,9 +64,16 @@ begin
     
     --------------------------------------------------------
 
-  p_clocking : process(char_i)
+  p_clocking : process(char_i, clk, reset)
  
     begin
+        if rising_edge(clk) then  
+            if (reset = '1') then   -- Synchronous reset
+                length_i <= 0; 
+			    temp     <= ZERO(20 downto 0);
+            else 
+
+                
                 case char_i is
                     -- char_i -> the input signal from pins
                     -- temp -> the variable with morse code
@@ -218,6 +225,8 @@ begin
 				    length_i<=0; 
 					temp <= ZERO(20 downto 0);
             end case;
+        end if;
+    end if;
  end process p_clocking;
     --------------------------------------------------------
     -- p_output_fsm:
