@@ -27,8 +27,18 @@
 ## Hardware description
 
 Pro tento projek byla zvolena deska Arty A7 - 50T.
-Odkaz na stránky výrobce desky: Artix-7 FPGA Development Board: https://digilent.com/shop/nexys-a7-fpga-trainer-board-recommended-for-ece-curriculum/
-Technická dokumentace desky, uživatelské fórum: https://digilent.com/reference/programmable-logic/nexys-a7/reference-manual?s[]=a7&s[]=50t
+- Odkaz na stránky výrobce desky: Artix-7 FPGA Development Board: https://digilent.com/shop/nexys-a7-fpga-trainer-board-recommended-for-ece-curriculum/
+- Manuál: https://digilent.com/reference/programmable-logic/nexys-a7/reference-manual?s[]=a7&s[]=50t
+
+### Vstupy a výstupy desky Arty A7-50T:
+ #### Deska Arty A7-50T 
+![image](https://user-images.githubusercontent.com/99397789/165620476-2f7d7832-cb68-44a2-83ed-58c5e2ccab6a.png)
+
+#### Popis desky
+![Screenshot 2022-04-27 at 22 00 09](https://user-images.githubusercontent.com/99397789/165621336-fced49fc-9baa-4328-a7d0-ccf815420509.png)
+
+#### Základní vstupy a výstupy
+![Screenshot 2022-04-27 at 22 03 44](https://user-images.githubusercontent.com/99397789/165621801-e5263aee-a8b7-4482-8fc7-98150d2926ef.png)
 
 
 
@@ -46,6 +56,7 @@ Write your text here.
 ## TOP module description and simulations
 
 Write your text here.
+
 
 <a name="video"></a>
 
