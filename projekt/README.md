@@ -40,8 +40,8 @@ Pro tento projek byla zvolena deska Arty A7 - 50T.
 #### Základní vstupy a výstupy
 ![Screenshot 2022-04-27 at 22 03 44](https://user-images.githubusercontent.com/99397789/165621801-e5263aee-a8b7-4482-8fc7-98150d2926ef.png)
 
-
-
+#### 7-segment dispaly 
+![image](https://user-images.githubusercontent.com/99397789/165799238-bac5e9f7-6941-40b5-923f-7ad3f25ca5f7.png)
 
 
 
