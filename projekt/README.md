@@ -14,7 +14,6 @@
 * [VHDL modules description and simulations](#modules)
 * [TOP module description and simulations](#top)
 * [Video](#video)
-* [References](#references)
 
 <a name="objectives"></a>
 
@@ -386,8 +385,3 @@ AN 			- zapínání anody 7-segmentového despleje
 
 https://www.youtube.com/watch?v=uhZZTJ2zUPY&feature=youtu.be
 
-<a name="references"></a>
-
-## References
-
-1. Write your text here.
