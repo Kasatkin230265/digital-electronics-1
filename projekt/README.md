@@ -48,7 +48,9 @@ Pro tento projek byla zvolena deska Arty A7 - 50T.
 
 ## VHDL modules description and simulations
 
-![image](https://user-images.githubusercontent.com/99397789/165746149-163a47cf-953e-4efe-8f67-5cee65fef54b.png)
+Schematic
+
+![image](https://user-images.githubusercontent.com/99397789/165819557-ac6f2e1b-ec42-4616-869d-020f75af71db.png)
 
 První design je _clock_enable_, kde se děje generování časových impulsů, na vstup přicházejí _CLK_ generovaný prknem a _BTNC_ který reaguje na stisknutí středního  tlačítka na desce a slouží pro zrušení pracovní desky a celého kódu.
 
