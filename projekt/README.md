@@ -50,7 +50,7 @@ Pro tento projek byla zvolena deska Arty A7 - 50T.
 
 Schematic
 
-![image](https://user-images.githubusercontent.com/99397789/165819557-ac6f2e1b-ec42-4616-869d-020f75af71db.png)
+![image](https://user-images.githubusercontent.com/99397789/165844002-e1c9ce8e-3e6a-48a8-8f51-f18fea1c8bf1.png)
 
 První design je _clock_enable_, kde se děje generování časových impulsů, na vstup přicházejí _CLK_ generovaný prknem a _BTNC_ který reaguje na stisknutí středního  tlačítka na desce a slouží pro zrušení pracovní desky a celého kódu.
 
