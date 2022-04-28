@@ -364,6 +364,14 @@ p_7seg_decoder : process(char_i)             --process for decode binary data in
 
 ## TOP module description and simulations
 
+_top_ je design sourse, který odpovídá za připojení vstupních a vystupních signálů k realným prvkam desky.
+
+char_i(n) 		- vstupní hodnota z přepinačů, kde n je pořadkové čislo přepinačů
+seg_o(n) a Cx 		- segment displeje, kde n je pořadkové čislo segmentu a x = {A,B,C,D,E,F,G}
+light(n) a LED16_n      - parametr RGB-ledky, kde n = {0,1,2}; _2 - R, 1 - G, 0 - B_.
+AN 			- zapínání anody 7-segmentového despleje
+
+
 ![image](https://user-images.githubusercontent.com/99397789/165803029-b1055cb9-766a-43f8-a421-f6f2a4de7820.png)
 
 
